@@ -8,6 +8,6 @@ COPY kiosk-gdm /usr/lib/
 COPY kiosk.conf /usr/lib/tmpfiles.d/
 RUN mkdir -p /usr/etc-system/ && \
     echo 'AuthorizedKeysFile /usr/etc-system/%u.keys' >> /etc/ssh/sshd_config.d/30-auth-system.conf && \
-    echo 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL7xFq1HtZKZiaD8MfkhNtn37m8GSc1W168NoSaT9RSf cardno:000F_C36A3FC0' > /usr/etc-system/root.keys && chmod 0600 /usr/etc-system/root.keys
+    echo 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKZW8CQSvnf1tWxEtnsgTOTXV4dobd/QgOGYZVuI+E7f your_email@example.com' > /usr/etc-system/root.keys && chmod 0600 /usr/etc-system/root.keys
 RUN systemctl enable sshd && firewall-offline-cmd --disabled
 RUN systemctl set-default graphical.target && ostree container commit
