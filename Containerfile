@@ -1,5 +1,5 @@
 FROM quay.io/centos-bootc/centos-bootc-dev:stream9
-RUN rpm-ostree install gdm firefox gnome-kiosk-script-session plymouth-system-theme firewalld
+RUN rpm-ostree install gdm firefox gnome-kiosk-script-session plymouth-system-theme firewalld greenboot
 RUN rm -rf /var/lib/gdm/.config/pulse/default.pa && rm -rf /var/lib/xkb/README.compiled
 COPY custom.conf /etc/gdm/
 COPY core.conf /usr/lib/sysusers.d/

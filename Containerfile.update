@@ -1,3 +1,6 @@
-FROM quay.io/runcom/kiosk-base:latest
+FROM quay.io/idiez/kiosk-greenboot-base:latest
 COPY --chmod=0755 --chown=1042:1042 gnome-kiosk-script.update /usr/lib/gnome-kiosk-script
+COPY failing-service.service /etc/systemd/system/required-check.service/
+COPY failing-script.sh /etc/greenboot/check/required.d/
+RUN systemctl enable failing-service.service
 RUN ostree container commit

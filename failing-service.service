@@ -1,0 +1,13 @@
+[Unit]
+Description=Failing health check
+Before=boot-complete.target
+OnFailure=redboot.target
+OnFailureJobMode=fail
+
+[Service]
+Type=oneshot
+ExecStart=/etc/greenboot/check/required.d/failing-script.sh
+
+[Install]
+RequiredBy=boot-complete.target
+WantedBy=multi-user.target
